@@ -1,17 +1,10 @@
-// models/pet.js
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const petSchema = mongoose.Schema({
-    name: {
-      type: String,
-      required: true,
-    },
-    age: {
-      type: Number,
-      min: 0,
-    },
-    breed: String,
-  });
-  
-  const Pet = mongoose.model('Pet', petSchema);
-  module.exports = Pet;
+const petSchema = new Schema({
+  name: { type: String, required: true },
+  age: { type: Number, min: 0 },
+  breed: { type: String },
+});
+
+export default mongoose.model("Pet", petSchema);

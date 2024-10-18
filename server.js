@@ -2,6 +2,7 @@ import db from "./db/connection.js"// let db = mongoose.connection
 import express from "express";
 import logger from "morgan";
 import chalk from "chalk";
+import petRouter from "./routes/pets.js"
 import dotenv from "dotenv"
 dotenv.config();
 const app = express()
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 3000
 app.use(express.json());
 app.use(logger("dev"));
 // Routes go here
+
+app.use("/pets", petRouter);
 
 
 
